@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if let dict = myDict {
             GMSServices.provideAPIKey(dict["GoogleMapAPIKey"] as! String)
-            let key = dict["GoogleMapAPIKey"] as! String
-            print(key)
         }
         // Override point for customization after application launch.
         return true
