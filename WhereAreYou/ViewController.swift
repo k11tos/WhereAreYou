@@ -9,13 +9,19 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    let locationManager = CLLocationManager()
+    var location        = CLLocationCoordinate2D(latitude: 0,longitude: 0)
+    let regionRadious:CLLocationDistance = 1000
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let camera = GMSCameraPosition.cameraWithLatitude(-33.868,
-                                                          longitude:151.2086, zoom:6)
+        location = self.getCurrentLocationFromGPS()
+
+        let camera = GMSCameraPosition.cameraWithLatitude(location.latitude,
+                                                          longitude:location.longitude, zoom:15)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
         
         let marker = GMSMarker()
@@ -32,6 +38,45 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func initLocationManager() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.distanceFilter  = kCLDistanceFilterNone
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func getCurrentLocationFromGPS () -> CLLocationCoordinate2D {
+        
+        var currentLocation = CLLocationCoordinate2D(latitude: 0,longitude: 0)
 
+        self.initLocationManager()
+        
+        if let locationManagerLocation = locationManager.location {
+            locationManager.startUpdatingLocation()
+            currentLocation = locationManagerLocation.coordinate
+            locationManager.stopUpdatingLocation()
+        } else {
+            currentLocation.latitude  = 0
+            currentLocation.longitude = 0
+        }
+        
+        return currentLocation
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.AuthorizedWhenInUse
+        {
+            location = getCurrentLocationFromGPS()
+            let camera = GMSCameraPosition.cameraWithLatitude(location.latitude,
+                                                              longitude:location.longitude, zoom:15)
+            let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
+            
+            let marker = GMSMarker()
+            marker.position = camera.target
+            marker.snippet = "Hello World"
+            marker.appearAnimation = kGMSMarkerAnimationPop
+            marker.map = mapView
+        }
+    }
 }
 
