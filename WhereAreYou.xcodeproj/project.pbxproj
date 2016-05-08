@@ -14,6 +14,7 @@
 		488886461CDE2531002BFFE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488886451CDE2531002BFFE3 /* Assets.xcassets */; };
 		488886491CDE2531002BFFE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488886471CDE2531002BFFE3 /* LaunchScreen.storyboard */; };
 		488886541CDE2531002BFFE3 /* WhereAreYouTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488886531CDE2531002BFFE3 /* WhereAreYouTests.swift */; };
+		489B5B471CDF86880092C490 /* MemberInMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B5B461CDF86880092C490 /* MemberInMap.swift */; };
 		F4218B7B04F27D4E1F7D339A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5BE29035428903EC5A8A8E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		4888864F1CDE2531002BFFE3 /* WhereAreYouTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereAreYouTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		488886531CDE2531002BFFE3 /* WhereAreYouTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereAreYouTests.swift; sourceTree = "<group>"; };
 		488886551CDE2531002BFFE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		489B5B461CDF86880092C490 /* MemberInMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberInMap.swift; sourceTree = "<group>"; };
 		9B81E7E6B4B72C8E17A221C1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AE5BE29035428903EC5A8A8E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 		4888863D1CDE2531002BFFE3 /* WhereAreYou */ = {
 			isa = PBXGroup;
 			children = (
+				489B5B461CDF86880092C490 /* MemberInMap.swift */,
 				4888863E1CDE2531002BFFE3 /* AppDelegate.swift */,
 				488886401CDE2531002BFFE3 /* ViewController.swift */,
 				488886421CDE2531002BFFE3 /* Main.storyboard */,
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489B5B471CDF86880092C490 /* MemberInMap.swift in Sources */,
 				488886411CDE2531002BFFE3 /* ViewController.swift in Sources */,
 				4888863F1CDE2531002BFFE3 /* AppDelegate.swift in Sources */,
 			);
