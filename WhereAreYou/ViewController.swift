@@ -13,7 +13,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
     var location        = CLLocationCoordinate2D(latitude: 0,longitude: 0)
-    let regionRadious:CLLocationDistance = 1000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +23,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                                           longitude:location.longitude, zoom:15)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
         
-        let marker = GMSMarker()
-        marker.position = camera.target
-        marker.snippet = "Hello World"
-        marker.appearAnimation = kGMSMarkerAnimationPop
-        marker.map = mapView
+        mapView.myLocationEnabled = true
         
+        //let mapInsets = UIEdgeInsetsMake(100.0, 0.0, 0.0, 300.0)
+        //mapView.padding = mapInsets
+        mapView.settings.compassButton = true
         self.view = mapView
+        
+//        let marker = GMSMarker()
+//        marker.position = camera.target
+//        marker.snippet = "Hello World"
+//        marker.appearAnimation = kGMSMarkerAnimationPop
+//        marker.map = mapView
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
     func initLocationManager() {
