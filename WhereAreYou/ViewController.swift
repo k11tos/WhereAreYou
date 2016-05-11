@@ -44,31 +44,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
             markers.append(marker)
         }
-        
-//        let marker1 = GMSMarker()
-//        marker1.position = CLLocationCoordinate2D(latitude: 37.566535, longitude:126.97796919999996)
-//        marker1.title = "A"
-//        marker1.appearAnimation = kGMSMarkerAnimationPop
-//        marker1.map = mapView
-//
-//        let marker2 = GMSMarker()
-//        marker2.position = CLLocationCoordinate2D(latitude: 37.4449168, longitude:127.13886839999998)
-//        marker2.title = "B"
-//        marker2.appearAnimation = kGMSMarkerAnimationPop
-//        marker2.map = mapView
-//
-//        let marker3 = GMSMarker()
-//        marker3.position = CLLocationCoordinate2D(latitude: 37.2410864, longitude:127.17755369999998)
-//        marker3.snippet = "C"
-//        marker3.appearAnimation = kGMSMarkerAnimationPop
-//        marker3.map = mapView
-//
-//        let marker4 = GMSMarker()
-//        marker4.position = CLLocationCoordinate2D(latitude: 36.9921075, longitude:127.11294509999993)
-//        marker4.snippet = "D"
-//        marker4.appearAnimation = kGMSMarkerAnimationPop
-//        marker4.map = mapView
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,10 +56,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     func loadSampleMembers() {
-        let member1 = MemberInMap(name: "A",  updatedDate: NSDate(), longitude: 37.566535, latitude: 126.97796919999996)
-        let member2 = MemberInMap(name: "B",  updatedDate: NSDate(), longitude: 37.4449168, latitude: 127.13886839999998)
-        let member3 = MemberInMap(name: "C", updatedDate: NSDate(), longitude: 37.2410864, latitude: 127.17755369999998)
-        let member4 = MemberInMap(name: "D",    updatedDate: NSDate(), longitude: 36.9921075, latitude: 127.11294509999993)
+        let member1 = MemberInMap(name: "A",  updatedDate: NSDate(), latitude: 37.566535, longitude: 126.97796919999996)
+        let member2 = MemberInMap(name: "B",  updatedDate: NSDate(), latitude: 37.4449168, longitude: 127.13886839999998)
+        let member3 = MemberInMap(name: "C", updatedDate: NSDate(), latitude: 37.2410864, longitude: 127.17755369999998)
+        let member4 = MemberInMap(name: "D",    updatedDate: NSDate(), latitude: 36.9921075, longitude: 127.11294509999993)
    
         membersInMap.append(member1!)
         membersInMap.append(member2!)

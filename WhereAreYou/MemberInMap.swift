@@ -12,14 +12,14 @@ import CoreLocation
 class MemberInMap:NSObject {
     var name       :String
     var updatedDate:NSDate
-    var longitude  :CLLocationDegrees
     var latitude   :CLLocationDegrees
+    var longitude  :CLLocationDegrees
     
-    init? (name:String, updatedDate:NSDate, longitude:CLLocationDegrees, latitude:CLLocationDegrees) {
+    init? (name:String, updatedDate:NSDate, latitude:CLLocationDegrees, longitude:CLLocationDegrees) {
         self.name        = name
         self.updatedDate = updatedDate
-        self.longitude   = longitude
         self.latitude    = latitude
+        self.longitude   = longitude
         
         super.init()
         
