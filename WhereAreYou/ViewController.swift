@@ -14,6 +14,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var location        = CLLocationCoordinate2D(latitude: 0,longitude: 0)
     var membersInMap    = [MemberInMap]()
+    @IBOutlet weak var mapView: GMSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,38 +23,39 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         let camera = GMSCameraPosition.cameraWithLatitude(location.latitude,
                                                           longitude:location.longitude, zoom:10)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
+        mapView.camera = camera
         
         mapView.myLocationEnabled = true
         
         //let mapInsets = UIEdgeInsetsMake(100.0, 0.0, 0.0, 300.0)
         //mapView.padding = mapInsets
         mapView.settings.compassButton = true
-        self.view = mapView
 
         loadSampleMembers()
+
         var markers = [GMSMarker]()
 
         for member in membersInMap {
-            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: member.latitude, longitude:member.longitude))
-            marker.snippet = member.name
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: member.latitude, longitude:member.longitude)
+            marker.title = member.name
             marker.appearAnimation = kGMSMarkerAnimationPop
             marker.map = mapView
-            
+
             markers.append(marker)
         }
         
-        let marker1 = GMSMarker()
-        marker1.position = CLLocationCoordinate2D(latitude: 37.566535, longitude:126.97796919999996)
-        marker1.snippet = "A"
-        marker1.appearAnimation = kGMSMarkerAnimationPop
-        marker1.map = mapView
-
-        let marker2 = GMSMarker()
-        marker2.position = CLLocationCoordinate2D(latitude: 37.4449168, longitude:127.13886839999998)
-        marker2.snippet = "B"
-        marker2.appearAnimation = kGMSMarkerAnimationPop
-        marker2.map = mapView
+//        let marker1 = GMSMarker()
+//        marker1.position = CLLocationCoordinate2D(latitude: 37.566535, longitude:126.97796919999996)
+//        marker1.title = "A"
+//        marker1.appearAnimation = kGMSMarkerAnimationPop
+//        marker1.map = mapView
+//
+//        let marker2 = GMSMarker()
+//        marker2.position = CLLocationCoordinate2D(latitude: 37.4449168, longitude:127.13886839999998)
+//        marker2.title = "B"
+//        marker2.appearAnimation = kGMSMarkerAnimationPop
+//        marker2.map = mapView
 //
 //        let marker3 = GMSMarker()
 //        marker3.position = CLLocationCoordinate2D(latitude: 37.2410864, longitude:127.17755369999998)
@@ -120,14 +122,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         {
             location = getCurrentLocationFromGPS()
             let camera = GMSCameraPosition.cameraWithLatitude(location.latitude,
-                                                              longitude:location.longitude, zoom:15)
-            let mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
-            
-            let marker = GMSMarker()
-            marker.position = camera.target
-            marker.snippet = "Hello World"
-            marker.appearAnimation = kGMSMarkerAnimationPop
-            marker.map = mapView
+                                                              longitude:location.longitude, zoom:10)
+            mapView.camera = camera
+
+//            let marker = GMSMarker()
+//            marker.position = camera.target
+//            marker.title = "Hello World"
+//            marker.appearAnimation = kGMSMarkerAnimationPop
+//            marker.map = mapView
         }
     }
 }
