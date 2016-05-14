@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
     var location        = CLLocationCoordinate2D(latitude: 0,longitude: 0)
